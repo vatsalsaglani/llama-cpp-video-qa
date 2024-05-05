@@ -34,6 +34,7 @@ def chunkTranscript(transcript: List[Dict], max_time: int = 60):
         if current_time + duration > max_time:
             transcript_chunks += [[]]
             current_time = 0
+            index -= 1  # to create an overlap
         transcript_chunks[-1] += [content]
         current_time += duration
         index += 1
